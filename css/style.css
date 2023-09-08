@@ -43,6 +43,9 @@ input {
     width: 60%;
     margin: auto;
 }
+.mt-pas {
+    margin-top: 30px;
+}
 .password-container {
     text-align: center;
 }
@@ -52,4 +55,27 @@ input {
     background-color: gold;
     color: orangered;
     font-weight: 600;
+}
+.reset {
+    display: inline-block;
+    padding: 5px 7px;
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+}
+.reset a {
+    text-decoration: none;
+    color: white;
+}
+.reset a:hover {
+    color: white;
+}
+.check-label {
+    display: inline;
+}
+.input-group {
+    margin-top: 8px;
+}
+.input-group input {
+    margin-right: 6px;
 }

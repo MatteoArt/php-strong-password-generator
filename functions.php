@@ -8,7 +8,7 @@ function genPassword($lung) {
     }
     //array di simboli e numeri
     $numbersSymbols = ["0","1","2","3","4","5","6","7","8","9","|","£","$","%","&","/","?","*","^","@","#",
-    ">","<",";",":"];
+    ">","<",";",":","!"];
 
     //array dei caratteri totali
     $totalChars = array_merge($letters,$uppercase,$numbersSymbols);
@@ -22,4 +22,10 @@ function genPassword($lung) {
 
     return $password;
 } 
+
+
+
+//bonus milestone 4
+//funzione per la gestione avanzata delle password
+//-----> QUI 
 ?>
