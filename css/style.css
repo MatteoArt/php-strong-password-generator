@@ -1,0 +1,55 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+h1 {
+    margin-top: 10px;
+    text-align: center;
+}
+form {
+    width: 60%;
+    margin: 30px auto 5px;
+}
+label {
+    display: block;
+    padding: 5px 0;
+    font-weight: 600;
+}
+input {
+    padding: 5px;
+}
+.btn {
+    margin-top: 7px;
+    padding: 5px 8px;
+    background-color: darkgreen;
+    border: 1px solid rgb(0, 55, 0);
+    border-radius: 5px;
+    color: white;
+    font-weight: 600;
+}
+.btn:hover {
+    cursor: pointer;
+    background-color: green;
+    border-color: darkgreen;
+}
+.txt-danger {
+    color: red;
+}
+.container {
+    width: 60%;
+    margin: auto;
+}
+.password-container {
+    text-align: center;
+}
+.password {
+    display: inline-block;
+    padding: 5px;
+    background-color: gold;
+    color: orangered;
+    font-weight: 600;
+}
