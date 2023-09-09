@@ -43,25 +43,34 @@ include 'functions.php';
     <div class="container">
         <?php
         if (isset($_GET["lung"])) {
+            //lunghezza password
             $input = trim($_GET["lung"]);
+
+            /********************
+             * salvo dati input delle checkbox
+             *******************/
+            $minus = $_GET["minuscole"];
+            $maius = $_GET["maiuscole"];
+            $numeri = $_GET["numeri"];
+            $simboli = $_GET["simboli"];
+            $ripeti = $_GET["ripeti"];
+
+            var_dump($_GET);
+
+
             if ($input === '') {
                 echo "<div class='txt-danger'>Non puoi lasciare il campo vuoto!</div>";
             } else {
                 $lunghezza = intval($input);
                 if ($lunghezza < 7) {
                     echo "<div class='txt-danger'>La lunghezza della password deve essere di minimo 7 caratteri!</div>";
-                } else {
-                    $password = genPassword($lunghezza);
-                    $_SESSION["password"] = $password;
+                } elseif (!$minus && !$maius && !$numeri && !$simboli) {
+                    echo "<div class='txt-danger'>Spunta almeno un parametro per la generazione della password!</div>";
+                }
+                else {
 
-                    /********************
-                     * salvo dati input delle checkbox
-                     *******************/
-                    $_SESSION["minusc"] = $_GET["minuscole"];
-                    $_SESSION["maiusc"] = $_GET["maiuscole"];
-                    $_SESSION["num"] = $_GET["numeri"];
-                    $_SESSION["simb"] = $_GET["simboli"];
-                    $_SESSION["uguali"] = $_GET["ripeti"];
+                    $password = advancedPassword($lunghezza, $minus, $maius, $numeri, $simboli, $ripeti);
+                    $_SESSION["password"] = $password;
 
                     header('Location: ./password.php');
                 }
