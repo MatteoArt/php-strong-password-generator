@@ -36,7 +36,7 @@ include 'functions.php';
         </div>
         <div class="input-group">
             <input type="checkbox" id="ripeti" name="ripeti">
-            <label class="check-label" for="ripeti">Ripeti caratteri uguali</label>
+            <label class="check-label" for="ripeti">Consenti ripetizione caratteri uguali</label>
         </div>
         <button class="btn" type="submit">Invia</button>
     </form>
@@ -49,14 +49,13 @@ include 'functions.php';
             /********************
              * salvo dati input delle checkbox
              *******************/
-            $minus = $_GET["minuscole"];
-            $maius = $_GET["maiuscole"];
-            $numeri = $_GET["numeri"];
-            $simboli = $_GET["simboli"];
-            $ripeti = $_GET["ripeti"];
+            $minus = isset($_GET["minuscole"]) ? $_GET["minuscole"] : null;
+            $maius = isset($_GET["maiuscole"]) ? $_GET["maiuscole"] : null;
+            $numeri = isset($_GET["numeri"]) ? $_GET["numeri"] : null;
+            $simboli = isset($_GET["simboli"]) ? $_GET["simboli"] : null;
 
-            var_dump($_GET);
 
+            $ripeti = isset($_GET["ripeti"]) ? $_GET["ripeti"] : false;
 
             if ($input === '') {
                 echo "<div class='txt-danger'>Non puoi lasciare il campo vuoto!</div>";
@@ -69,9 +68,15 @@ include 'functions.php';
                 }
                 else {
 
-                    $password = advancedPassword($lunghezza, $minus, $maius, $numeri, $simboli, $ripeti);
-                    $_SESSION["password"] = $password;
+                    $password = advancedPassword($lunghezza, $minus, $maius, $numeri, $simboli);
+                    $finalPass = isRepeatChar($password,$ripeti);
+                    
+                    $caratteriEliminati = strlen($password) - strlen($finalPass);
 
+                    $_SESSION["password"] = $finalPass;
+                    $_SESSION["eliminati"] = $caratteriEliminati;
+
+                    
                     header('Location: ./password.php');
                 }
             }

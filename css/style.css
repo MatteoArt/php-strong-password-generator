@@ -52,9 +52,10 @@ input {
 .password {
     display: inline-block;
     padding: 5px;
-    background-color: gold;
-    color: orangered;
+    background-color: lightgray;
+    color: black;
     font-weight: 600;
+    font-size: 18px;
 }
 .reset {
     display: inline-block;
@@ -78,4 +79,29 @@ input {
 }
 .input-group input {
     margin-right: 6px;
+}
+#ripeti {
+    margin-bottom: 20px;
+    font-size: small;
+}
+.visual {
+    display: inline-block;
+    padding: 2px 5px;
+    border: 1px solid black;
+    border-radius: 3px;
+}
+.msg-danger {
+    color: red;
+    font-size: 18px;
+    font-weight: 600;
+}
+.msg-medium {
+    color: rgb(255, 225, 0);
+    font-size: 18px;
+    font-weight: 600;
+}
+.msg-strong {
+    color: green;
+    font-size: 18px;
+    font-weight: 600;
 }

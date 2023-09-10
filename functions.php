@@ -23,11 +23,36 @@ function genPassword($lung) {
     return $password;
 } 
 
+//bonus: funzione per la gestione della ripetizione caratteri
+function isRepeatChar($pass, $repeat) {
+    $lung = strlen($pass);
+
+    $substring = "";
+
+    //array contenente i caratteri ripetuti
+    $repeatChar = [];
+
+    for ($i = 0; $i < $lung; $i++) {
+        if (str_contains($substring,$pass[$i])) {
+            $repeatChar[] = $pass[$i];
+        }
+        $substring = $substring.$pass[$i];
+    }
+
+    var_dump($repeatChar);
+
+    if ($repeat) {
+        return $substring;
+    } else if (!$repeat) { //se i caratteri non si possono ripetere
+        $ris = str_replace($repeatChar,'',$substring);
+        return $ris;
+    }
+}
 
 
 //bonus milestone 4
 //funzione per la gestione avanzata delle password
-function advancedPassword($lung, $minusc, $maiusc, $num, $simbol, $uguali) {
+function advancedPassword($lung, $minusc, $maiusc, $num, $simbol) {
     //array totale dei caratteri sui quali generare la password
     $totalChars = [];
     if ($minusc) {
@@ -70,7 +95,7 @@ function advancedPassword($lung, $minusc, $maiusc, $num, $simbol, $uguali) {
         $password = $password.$totalChars[$random_number];
     }
 
-    
+
     return $password;
 }
 ?>
